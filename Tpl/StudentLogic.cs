@@ -44,7 +44,13 @@ public static class StudentLogic
 
     public static Task WaitingForChildrenToComplete()
     {
-        return Task.Factory.StartNew(() => { });
+        Task parent = Task.Factory.StartNew(() =>
+        {
+            Task child = Task.Factory.StartNew(() => Thread.Sleep(6000),
+                TaskCreationOptions.AttachedToParent);
+        });
+        Thread.Sleep(2000);
+        return parent;
     }
 
     public static Task IsCompleted()
