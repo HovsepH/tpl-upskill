@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
@@ -102,7 +102,7 @@ public class TplUnitTest
     {
         // Arrange
         var testList = Enumerable.Range(1, 300).ToList();
-        var plinqResult = testList.Where(x => x > 0);
+        var plinqResult = testList.Where(x => x > 0).ToList();
 
         // Act
         var result = StudentLogic.ForceParallelismPlinq();
