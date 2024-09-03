@@ -46,10 +46,10 @@ public static class StudentLogic
     {
         Task parent = Task.Factory.StartNew(() =>
         {
-            Task child = Task.Factory.StartNew(() => Thread.Sleep(200),
+            Task child = Task.Factory.StartNew(() => Thread.Sleep(2000),
                 TaskCreationOptions.AttachedToParent);
         });
-        Thread.Sleep(100);
+        Thread.Sleep(10);
         return parent;
     }
 
